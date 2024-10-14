@@ -1,1 +1,10 @@
-Hii
+RoadMap to React 
+----------------
+Why to learn React ?
+- hyte, job, trend, build UI
+- makes easy to manage & build complex front end 
+
+When should I learn React ? 
+- After mastering JS
+- Most project don't need react in initial phase 
+
