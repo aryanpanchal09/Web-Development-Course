@@ -8,3 +8,9 @@ When should I learn React ?
 - After mastering JS
 - Most project don't need react in initial phase 
 
+Why react was created ? 
+- Ghost message problem 
+- No Consistency in UI 
+
+Don't learn React if : 
+- You don't know how JS Works or DOM Works 
