@@ -1,2 +1,10 @@
 RoadMap to Web Dev 
 ------------------
+
+Browser - Chrome 
+Code Editor - VS Code 
+Warp - Terminal 
+
+CodePen - Online setup - To learn things faster 
+StackBlitz
+Replit 
