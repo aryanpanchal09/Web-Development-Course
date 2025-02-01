@@ -42,17 +42,6 @@ Welcome to my GitHub repository where I document my learnings from the **Ultimat
 - Build real-world projects for personal, academic, or freelance purposes
 - Work with **MERN Stack**, Git, and advanced web technologies
 
-## ⚙️ Prerequisites
-- A laptop with a stable internet connection
-- A strong will to learn and complete the course
-
-## 👥 Who Is This For?
-- **Students** looking to start their web development journey
-- **Complete Beginners** aiming to build foundational skills
-- **Intermediate to Advanced Learners** wanting to upskill
-- **Tech Enthusiasts** curious about under-the-hood details
-- **Freelancers & Career Changers** seeking practical, job-ready skills
-
 ## 🗂 Repository Structure
 ```
 web-development-course/
