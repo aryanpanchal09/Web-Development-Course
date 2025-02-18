@@ -1,0 +1,1 @@
+npm i bcryptjs & require bcryptjs in a variable 
