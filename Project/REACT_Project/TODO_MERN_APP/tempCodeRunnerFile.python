@@ -1,0 +1,19 @@
+import matplotlib.pyplot as plt
+
+# Data
+tasks = list(range(1, 12))
+plan_days = [5, 3, 3, 2, 6, 4, 5, 1, 10, 5, 5]
+actual_days = [7, 5, 4, 2, 9, 5, 6, 1, 15, 8, 10]
+
+# Plot
+plt.plot(tasks, plan_days, marker='o', linestyle='-', color='blue', label="Plan Days")
+plt.plot(tasks, actual_days, marker='o', linestyle='-', color='green', label="Actual Days")
+
+# Labels
+plt.xlabel("Task (Sprints)")
+plt.ylabel("Efforts (Days)")
+plt.title("Earned Value & Burn Chart")
+plt.legend()
+
+# Show
+plt.show()
