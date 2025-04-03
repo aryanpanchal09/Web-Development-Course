@@ -30,7 +30,7 @@ const Signup = () => {
                         <button className="btn-signup p-2">Sign Up</button>
                     </div>
                 </div>
-                <div className="col-lg-4 column col-left d-flex justify-content-center align-items-center">
+                <div className="col-lg-4 column d-flex justify-content-center align-items-center">
                     <HeadingComp first="Sign" second="Up" />
                 </div>
             </div>
