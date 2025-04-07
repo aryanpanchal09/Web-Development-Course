@@ -14,3 +14,10 @@
 #textarea {
     display: none;
 }
+.todo-card {
+    border: 1px solid black;
+}
+.todo-card-p {
+    text-align: justify;
+    text-justify: inter-word;
+}
