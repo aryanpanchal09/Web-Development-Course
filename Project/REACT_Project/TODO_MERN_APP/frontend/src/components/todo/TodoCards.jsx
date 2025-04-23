@@ -1,14 +1,22 @@
 import React from "react";
+import { MdDelete } from "react-icons/md";
+import { GrDocumentUpdate } from "react-icons/gr";
 
-const TodoCards = () => {
+const TodoCards = ({ title, body }) => {
   return (
     <div className="p-3 todo-card">
-        <div>
-            <h5>Heading</h5>
-            <p className="todo-card-p">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi corporis voluptatibus ipsum dolore quas necessitatibus neque voluptates tenetur ad perspiciatis. Nam facere, rerum quibusdam assumenda incidunt veritatis eligendi cum quo?
-            </p>
+      <div>
+        <h5>{title}</h5>
+        <p className="todo-card-p">{body.split("", 77)}...</p>
+      </div>
+      <div className="d-flex justify-content-around">
+        <div className="d-flex justify-content-center align-items-center card-icon-head px-2 py-1">
+          <GrDocumentUpdate className="card-icons" /> Update
         </div>
+        <div className="d-flex justify-content-center align-items-center card-icon-head px-2 py-1 text-danger">
+          <MdDelete className="card-icons del" /> Delete
+        </div>
+      </div>
     </div>
   );
 };
