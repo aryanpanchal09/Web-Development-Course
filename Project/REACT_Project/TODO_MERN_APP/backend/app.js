@@ -17,4 +17,4 @@ app.use("/api/v2", list);
 
 app.listen(1000, () => {
     console.log("Server started");
-});
+});  

@@ -22,7 +22,7 @@ router.post("/signin", async (req,res) => {
     try {
         const user = await User.findOne({ email: req.body.email });
         if (!user) {
-            res.status(400).json({ message: "Please Sign Up First" });
+            res.status(200).json({ message: "Please Sign Up First" });
         }
 
         const isPasswordCorrect = bcrypt.compareSync(
@@ -30,12 +30,12 @@ router.post("/signin", async (req,res) => {
             user.password
         );
         if (!isPasswordCorrect) {
-            res.status(400).json({ message: "Password is not correct" });
+            res.status(200).json({ message: "Password is not correct" });
         }
         const { password, ...others } = user._doc;
         res.status(200).json({ others });
     } catch (error) {
-        res.status(400).json({ message: "User Already Exists" });
+        res.status(200).json({ message: "User Already Exists" });
     }
 });
 
