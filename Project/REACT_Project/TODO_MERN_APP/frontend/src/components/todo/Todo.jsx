@@ -29,6 +29,9 @@ const Todo = () => {
     Array.splice(id, "1");
     setArray([...Array]);
   };
+  const dis = (value) => {
+    document.getElementById("todo-update").style.display = value;
+  };
   return (
     <>
       <div className="todo">
@@ -71,6 +74,7 @@ const Todo = () => {
                       body={item.body}
                       id={index}
                       delid={del}
+                      display={dis}
                     />
                   </div>
                 ))}
@@ -78,9 +82,9 @@ const Todo = () => {
           </div>
         </div>
       </div>
-      <div className="todo-update">
+      <div className="todo-update" id="todo-update">
         <div className="container update">
-          <Update />
+          <Update display={dis} />
         </div>
       </div>
     </>
