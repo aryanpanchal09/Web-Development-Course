@@ -5,8 +5,8 @@ const List = require("../models/list");
 // created
 router.post("/addTask", async (req, res) => {
   try {
-    const { title, body, email } = req.body;
-    const existingUser = await User.findOne({ email });
+    const { title, body, id } = req.body;
+    const existingUser = await User.findById({ id });
     if (existingUser) {
       const list = new List({ title, body, user: existingUser });
       await list.save().then(() => res.status(200).json({ list }));
@@ -38,7 +38,7 @@ router.delete("/deleteTask/:id", async (req, res) => {
     const { email } = req.body;
     const existingUser = await User.findOneAndUpdate(
       { email },
-      { $pull: { list: req.params.id }}
+      { $pull: { list: req.params.id } }
     );
     if (existingUser) {
       await List.findByIdAndDelete(req.params.id).then(() =>
@@ -53,10 +53,10 @@ router.delete("/deleteTask/:id", async (req, res) => {
 //getTask
 router.get("/getTasks/:id", async (req, res) => {
   const list = await List.find({ user: req.params.id }).sort({ createdAt: -1 });
-  if(list.length !== 0) {
+  if (list.length !== 0) {
     res.status(200).json({ list: list });
   } else {
-    res.status(200).json({ message: "No Tasks"});
+    res.status(200).json({ message: "No Tasks" });
   }
 });
 
