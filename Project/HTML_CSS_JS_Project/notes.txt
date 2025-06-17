@@ -1,0 +1,7 @@
+- A simple project consist of my 90 days todo list a website store progress purpose full stack developemtn or merns stack developer 
+- A simple ui 
+- Task list today - weekely - monthly - 3 months - 6 months - yearly - 5 year 
+- consisting of my goals & systems 
+
+Pages create 
+Home page - introduction of website what it contains 

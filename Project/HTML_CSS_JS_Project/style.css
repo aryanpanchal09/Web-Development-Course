@@ -1,0 +1,12 @@
+header {
+    height: 80px;
+    /* Adjust based on your design */
+    background-color: #D8DCE0;
+    /* Example background */
+    display: flex;
+    /* Align items neatly */
+    justify-content: space-between;
+    /* Distribute content */
+    padding: 10px 20px;
+    /* Add inner space */
+}
