@@ -1,12 +1,48 @@
-header {
-    height: 80px;
-    /* Adjust based on your design */
-    background-color: #D8DCE0;
-    /* Example background */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
     display: flex;
-    /* Align items neatly */
     justify-content: space-between;
-    /* Distribute content */
+    padding: 20px;
+}
+
+.left-side,
+.right-side {
+    width: 45%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
+.highlight {
+    color: #ff6347;
+}
+
+.hire-me,
+.chat {
+    background-color: #ff6347;
+    color: white;
+    border: none;
     padding: 10px 20px;
-    /* Add inner space */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.download-cv {
+    color: #ff6347;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
 }
