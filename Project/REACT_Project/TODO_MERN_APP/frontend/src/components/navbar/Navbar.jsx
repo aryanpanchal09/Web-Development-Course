@@ -88,7 +88,7 @@ const Navbar = () => {
                     aria-current='page'
                     to='#'
                   >
-                    Logout
+                    Log Out
                   </Link>
                 </li>
               )}

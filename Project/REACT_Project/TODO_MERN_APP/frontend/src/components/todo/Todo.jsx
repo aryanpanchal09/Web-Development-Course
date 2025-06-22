@@ -8,11 +8,29 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../store";
 import axios from "axios";
+import { useEffect } from "react";
 
 let id = sessionStorage.getItem("id");
 const Todo = () => {
-  const [Inputs, setInputs] = useState({ title: "", body: "" });
+  const [Inputs, setInputs] = useState({
+    title: "",
+    body: "",
+  });
   const [Array, setArray] = useState([]);
+
+  useEffect(() => {
+    const fetch = async () => {
+      await axios
+        .get(`http://localhost:1000/api/v2/getTasks/${id}`)
+        .then((response) => {
+          if (response.data.list) {
+            setArray(response.data.list); // <-- Add this line
+          }
+        });
+    };
+    fetch();
+  }, []);
+
   const show = () => {
     document.getElementById("textarea").style.display = "block";
   };
@@ -26,19 +44,26 @@ const Todo = () => {
     } else {
       if (id) {
         await axios
-          .post("http://localhost:1000/api/v2/addTask", {})
+          .post("http://localhost:1000/api/v2/addTask", {
+            title: Inputs.title,
+            body: Inputs.body,
+            id: id,
+          })
           .then((response) => {
             console.log(response);
           });
+        setInputs({ title: "", body: "" });
+        toast.success("Task Added");
+      } else {
+        setArray([...Array, Inputs]);
+        setInputs({ title: "", body: "" });
+        toast.success("Task Added");
+        toast.error("Task not added! Please SignUp");
       }
-      setArray([...Array, Inputs]);
-      setInputs({ title: "", body: "" });
-      toast.success("Task Added");
-      toast.error("Task not added! Please SignUp");
     }
   };
   const del = (id) => {
-    Array.splice(id, "1");
+    Array.splice(id, 1);
     setArray([...Array]);
   };
   const dis = (value) => {
