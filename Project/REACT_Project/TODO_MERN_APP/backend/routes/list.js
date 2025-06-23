@@ -35,9 +35,9 @@ router.put("/updateTask/:id", async (req, res) => {
 //delete
 router.delete("/deleteTask/:id", async (req, res) => {
   try {
-    const { email } = req.body;
-    const existingUser = await User.findOneAndUpdate(
-      { email },
+    const { id } = req.body;
+    const existingUser = await User.findByIdAndUpdate(
+      id,
       { $pull: { list: req.params.id } }
     );
     if (existingUser) {

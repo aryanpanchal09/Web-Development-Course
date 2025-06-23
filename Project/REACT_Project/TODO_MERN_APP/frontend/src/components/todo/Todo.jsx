@@ -18,19 +18,6 @@ const Todo = () => {
   });
   const [Array, setArray] = useState([]);
 
-  useEffect(() => {
-    const fetch = async () => {
-      await axios
-        .get(`http://localhost:1000/api/v2/getTasks/${id}`)
-        .then((response) => {
-          if (response.data.list) {
-            setArray(response.data.list); // <-- Add this line
-          }
-        });
-    };
-    fetch();
-  }, []);
-
   const show = () => {
     document.getElementById("textarea").style.display = "block";
   };
@@ -62,54 +49,72 @@ const Todo = () => {
       }
     }
   };
-  const del = (id) => {
-    Array.splice(id, 1);
-    setArray([...Array]);
+  const del = async (Cardid) => {
+    await axios
+      .delete(`http://localhost:1000/api/v2/deleteTask/${Cardid}`, {
+        data: { id: id },
+      })
+      .then((response) => {
+        console.log(response.data);
+      });
   };
+
   const dis = (value) => {
     document.getElementById("todo-update").style.display = value;
   };
+
+  useEffect(() => {
+    const fetch = async () => {
+      await axios
+        .get(`http://localhost:1000/api/v2/getTasks/${id}`)
+        .then((response) => {
+          setArray(response.data.list); // <-- Add this line
+        });
+    };
+    fetch();
+  }, [submit]);
+
   return (
     <>
-      <div className='todo'>
+      <div className="todo">
         <ToastContainer />
-        <div className='todo-main container d-flex justify-content-center align-items-center my-4 flex-column'>
-          <div className='d-flex flex-column todo-inputs-div w-50 p-1'>
+        <div className="todo-main container d-flex justify-content-center align-items-center my-4 flex-column">
+          <div className="d-flex flex-column todo-inputs-div w-50 p-1">
             <input
-              type='text'
-              placeholder='TITLE'
-              className='my-2 p-2 todo-inputs'
+              type="text"
+              placeholder="TITLE"
+              className="my-2 p-2 todo-inputs"
               onClick={show}
-              name='title'
+              name="title"
               value={Inputs.title}
               onChange={change}
             />
             <textarea
-              id='textarea'
-              type='text'
-              placeholder='BODY'
-              name='body'
-              className='p-2 todo-inputs'
+              id="textarea"
+              type="text"
+              placeholder="BODY"
+              name="body"
+              className="p-2 todo-inputs"
               value={Inputs.body}
               onChange={change}
             />
           </div>
-          <div className='w-50 d-flex justify-content-end my-3'>
-            <button className='home-btn px-2 py-1' onClick={submit}>
+          <div className="w-50 d-flex justify-content-end my-3">
+            <button className="home-btn px-2 py-1" onClick={submit}>
               Add
             </button>
           </div>
         </div>
-        <div className='todo-body'>
-          <div className='container-fluid'>
-            <div className='row'>
+        <div className="todo-body">
+          <div className="container-fluid">
+            <div className="row">
               {Array &&
                 Array.map((item, index) => (
-                  <div className='col-lg-3 col-10 mx-5 my-2' key={index}>
+                  <div className="col-lg-3 col-10 mx-5 my-2" key={index}>
                     <TodoCards
                       title={item.title}
                       body={item.body}
-                      id={index}
+                      id={item._id}
                       delid={del}
                       display={dis}
                     />
@@ -119,8 +124,8 @@ const Todo = () => {
           </div>
         </div>
       </div>
-      <div className='todo-update' id='todo-update'>
-        <div className='container update'>
+      <div className="todo-update" id="todo-update">
+        <div className="container update">
           <Update display={dis} />
         </div>
       </div>
