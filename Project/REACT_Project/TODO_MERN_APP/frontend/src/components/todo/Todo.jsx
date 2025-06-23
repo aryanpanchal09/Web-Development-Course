@@ -11,6 +11,8 @@ import axios from "axios";
 import { useEffect } from "react";
 
 let id = sessionStorage.getItem("id");
+let toUpdateArray = [];
+
 const Todo = () => {
   const [Inputs, setInputs] = useState({
     title: "",
@@ -21,10 +23,12 @@ const Todo = () => {
   const show = () => {
     document.getElementById("textarea").style.display = "block";
   };
+
   const change = (e) => {
     const { name, value } = e.target;
     setInputs({ ...Inputs, [name]: value });
   };
+
   const submit = async () => {
     if (Inputs.title === "" || Inputs.body === "") {
       toast.error("Title or Body should not be Empty");
@@ -49,29 +53,41 @@ const Todo = () => {
       }
     }
   };
+
   const del = async (Cardid) => {
-    await axios
-      .delete(`http://localhost:1000/api/v2/deleteTask/${Cardid}`, {
-        data: { id: id },
-      })
-      .then((response) => {
-        console.log(response.data);
-      });
+    if (id) {
+      await axios
+        .delete(`http://localhost:1000/api/v2/deleteTask/${Cardid}`, {
+          data: { id: id },
+        })
+        .then((response) => {
+          toast.success("Your Task is Deleted");
+        });
+    } else {
+      toast.error("Please SignUp First!");
+    }
   };
 
   const dis = (value) => {
     document.getElementById("todo-update").style.display = value;
   };
 
+  const update = (value) => {
+    toUpdateArray = Array[value];
+    /* console.log(value); */
+  };
+
   useEffect(() => {
-    const fetch = async () => {
-      await axios
-        .get(`http://localhost:1000/api/v2/getTasks/${id}`)
-        .then((response) => {
-          setArray(response.data.list); // <-- Add this line
-        });
-    };
-    fetch();
+    if (id) {
+      const fetch = async () => {
+        await axios
+          .get(`http://localhost:1000/api/v2/getTasks/${id}`)
+          .then((response) => {
+            setArray(response.data.list); // <-- Add this line
+          });
+      };
+      fetch();
+    }
   }, [submit]);
 
   return (
@@ -117,6 +133,8 @@ const Todo = () => {
                       id={item._id}
                       delid={del}
                       display={dis}
+                      updateId={index}
+                      toBeUpdate={update}
                     />
                   </div>
                 ))}
@@ -126,7 +144,7 @@ const Todo = () => {
       </div>
       <div className="todo-update" id="todo-update">
         <div className="container update">
-          <Update display={dis} />
+          <Update display={dis} update={toUpdateArray} />
         </div>
       </div>
     </>

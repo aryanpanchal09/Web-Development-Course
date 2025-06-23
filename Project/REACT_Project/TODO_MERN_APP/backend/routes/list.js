@@ -21,12 +21,12 @@ router.post("/addTask", async (req, res) => {
 //update
 router.put("/updateTask/:id", async (req, res) => {
   try {
-    const { title, body, email } = req.body;
+    /*     const { title, body, email } = req.body;
     const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      const list = await List.findByIdAndUpdate(req.params.id, { title, body });
-      list.save().then(() => res.status(200).json({ message: "Task Updated" }));
-    }
+    if (existingUser) { */
+    const { title, body } = req.body;
+    const list = await List.findByIdAndUpdate(req.params.id, { title, body });
+    list.save().then(() => res.status(200).json({ message: "Task Updated" }));
   } catch (error) {
     console.log(error);
   }
@@ -36,10 +36,9 @@ router.put("/updateTask/:id", async (req, res) => {
 router.delete("/deleteTask/:id", async (req, res) => {
   try {
     const { id } = req.body;
-    const existingUser = await User.findByIdAndUpdate(
-      id,
-      { $pull: { list: req.params.id } }
-    );
+    const existingUser = await User.findByIdAndUpdate(id, {
+      $pull: { list: req.params.id },
+    });
     if (existingUser) {
       await List.findByIdAndDelete(req.params.id).then(() =>
         res.status(200).json({ message: "Task Deleted" })
