@@ -95,7 +95,7 @@ const Todo = () => {
       <div className="todo">
         <ToastContainer />
         <div className="todo-main container d-flex justify-content-center align-items-center my-4 flex-column">
-          <div className="d-flex flex-column todo-inputs-div w-50 p-1">
+          <div className="d-flex flex-column todo-inputs-div w-100 p-1">
             <input
               type="text"
               placeholder="TITLE"
@@ -115,7 +115,7 @@ const Todo = () => {
               onChange={change}
             />
           </div>
-          <div className="w-50 d-flex justify-content-end my-3">
+          <div className="w-lg-50 w-100 d-flex justify-content-end my-3">
             <button className="home-btn px-2 py-1" onClick={submit}>
               Add
             </button>
@@ -126,7 +126,10 @@ const Todo = () => {
             <div className="row">
               {Array &&
                 Array.map((item, index) => (
-                  <div className="col-lg-3 col-10 mx-5 my-2" key={index}>
+                  <div
+                    className="col-lg-3 col-11 mx-lg-5 mx-3 my-2"
+                    key={index}
+                  >
                     <TodoCards
                       title={item.title}
                       body={item.body}

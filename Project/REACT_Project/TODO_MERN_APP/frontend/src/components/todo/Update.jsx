@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 const Update = ({ display, update }) => {
   useEffect(() => {
@@ -21,11 +22,11 @@ const Update = ({ display, update }) => {
 
   const submit = async () => {
     await axios
-      .put(`http://localhost:1000/api/v2/updateTask/${update.id}`, Inputs)
+      .put(`http://localhost:1000/api/v2/updateTask/${update._id}`, Inputs)
       .then((response) => {
-        console.log(response);
+        toast.success("Your Task is Updated");
       });
-    console.log(Inputs);
+
     display("none");
   };
 
