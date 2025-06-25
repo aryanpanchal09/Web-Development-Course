@@ -2,6 +2,7 @@ html,
 body {
     margin: 0;
     padding: 0;
+    background-color: rgb(226, 228, 234);
 }
 
 body {
@@ -52,6 +53,7 @@ body {
 .filter-nav {
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
 .filter-nav a {
@@ -63,11 +65,63 @@ body {
     margin: 4px;
 }
 
+.languages {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
 .language-card {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 200px 1fr;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.language-card-photo {
+    order: 1;
+    grid-row: 1;
+    overflow: hidden;
 }
 
 .language-card-photo img {
+    display: block;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: transform .3s ease-in-out;
+}
+
+.language-card:hover img {
+    transform: rotate(5deg) scale(1.05);
+}
+
+.language-card-text {
+    padding: 20px 25px;
+}
+
+.language-card-text h3 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 1.8rem;
+}
+
+.animal-card-text small {
+    color: #393E46;
+}
+
+.language-card-text p {
+    margin: .8rem 0;
+    padding: 0;
+    line-height: 1.5rem;
+}
+
+.primary-btn {
+    background: linear-gradient(#948979, #DFD0B8);
+    padding: 10px;
+    color: #ffff;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
 }
