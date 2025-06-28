@@ -76,6 +76,7 @@ body {
     background-color: white;
     border-radius: 20px;
     overflow: hidden;
+    margin: 30px;
 }
 
 .language-card-photo {
