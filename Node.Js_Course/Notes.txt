@@ -1,0 +1,8 @@
+Node is a JavaScript runtime that allows JavaScript to be executed outside of the browser, particularly on servers. While JavaScript is typically used for client-side programming to manipulate web pages, Node.js extends its use to server-side programming.
+
+Key points include:
+
+Node.js enables developers to run JavaScript in environments other than the browser.
+It is built on the V8 JavaScript engine, which compiles JavaScript into machine code for efficient execution.
+Node.js adds server-specific features, such as accessing the local file system for more complex interactions with the operating system.
+However, it does not support browser-specific features, like interacting with the Document Object Model (DOM).
