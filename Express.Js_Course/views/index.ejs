@@ -6,6 +6,6 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Hello <%= 2 + 2 %></h1>
+    <h1>Hello <%= locals.text || "Default Value from Client" %></h1>
   </body>
 </html>
