@@ -13,8 +13,35 @@ router.post('/', (req, res) => {
   res.send('Create User');
 });
 
-router.get('/:id', (req, res) => {
+router
+  .route('/:id')
+  .get((req, res) => {
+    console.log(req.user);
+    res.send(`Get User With ID ${req.params.id}`);
+  })
+  .put((req, res) => {
+    res.send(`Update User With ID ${req.params.id}`);
+  })
+  .delete((req, res) => {
+    res.send(`Delete User With ID ${req.params.id}`);
+  });
+
+const users = [{ name: 'Aryan' }, { name: 'Kyle' }];
+router.param('id', (req, res, next, id) => {
+  req.user = users[id];
+  next();
+});
+
+/* router.get('/:id', (req, res) => {
   res.send(`Get User with ID ${req.params.id}`);
 });
 
+router.put('/:id', (req, res) => {
+  res.send(`Get User with ID ${req.params.id}`);
+});
+
+router.delete('/:id', (req, res) => {
+  res.send(`Get User with ID ${req.params.id}`);
+});
+ */
 module.exports = router;
