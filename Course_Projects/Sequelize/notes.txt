@@ -1,0 +1,6 @@
+Project Queries implement - 1 query 
+Small Project - fundamentals strong based on my project structure 
+- Understand the project structure 
+- create table 
+- try to post some data through it 
+- POSTMAN api call - api structure and all 
