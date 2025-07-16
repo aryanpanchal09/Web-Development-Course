@@ -1,9 +1,0 @@
-Customer - debt collect 
-Head > collector > customer 
-Customer - csv file - related information - postcode - collector assign 
-
-All Utility Collection Website 
-
-Work assign Client > Customer reach task perform 
-
----
