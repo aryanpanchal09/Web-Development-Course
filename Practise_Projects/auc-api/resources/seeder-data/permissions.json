@@ -1,0 +1,22 @@
+[
+  {
+    "permission_name": "DebtCollector Add",
+    "permission_key": "debtcollector_add",
+    "module_key": "debtcollector_management"
+  },
+  {
+    "permission_name": "DebtCollector Update",
+    "permission_key": "debtcollector_update",
+    "module_key": "debtcollector_management"
+  },
+  {
+    "permission_name": "DebtCollector List",
+    "permission_key": "debtcollector_list",
+    "module_key": "debtcollector_management"
+  },
+  {
+    "permission_name": "DebtCollector Remove",
+    "permission_key": "debtcollector_remove",
+    "module_key": "debtcollector_management"
+  }
+]
