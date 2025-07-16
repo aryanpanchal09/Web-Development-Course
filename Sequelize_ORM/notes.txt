@@ -1,0 +1,5 @@
+psql -U postgres -W
+\du
+\c sequelize_db
+sequelize model:generate --name User --attributes name:string,email:string,role:string
+node app.js
