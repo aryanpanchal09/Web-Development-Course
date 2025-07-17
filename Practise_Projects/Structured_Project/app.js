@@ -16,6 +16,16 @@ app.post('/users', async (req, res) => {
   }
 });
 
+app.get('/users', async (req, res) => {
+  try {
+    const users = await User.findAll();
+    return res.json(users);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ error: 'Something went wrong' });
+  }
+});
+
 app.listen({ port: 5000 }, async () => {
   console.log('Server running on port 5000');
   await sequelize.authenticate;
