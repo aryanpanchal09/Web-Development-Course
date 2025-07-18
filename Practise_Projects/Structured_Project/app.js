@@ -26,6 +26,19 @@ app.get('/users', async (req, res) => {
   }
 });
 
+app.get('/users/:uuid', async (req, res) => {
+  const uuid = req.params.uuid;
+  try {
+    const user = await User.findOne({
+      where: { uuid },
+    });
+    return res.json(user);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ error: 'Something went wrong' });
+  }
+});
+
 app.listen({ port: 5000 }, async () => {
   console.log('Server running on port 5000');
   await sequelize.authenticate;

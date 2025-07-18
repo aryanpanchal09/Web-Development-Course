@@ -9,3 +9,7 @@ psql -U postgres -W
 \c sequelize_db
 sequelize model:generate --name User --attributes name:string,email:string,role:string
 node app.js
+
+sequelize model:generate --name Post --attributes body:string
+
+sequelize db:migrate:status
